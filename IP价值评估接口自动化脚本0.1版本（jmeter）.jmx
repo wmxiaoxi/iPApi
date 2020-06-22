@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="IP价值评估--框架为测试1，测试2；1.1，1.2，1.3，2.1，2.2，2.3" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Connection" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">keep-alive</stringProp>
+            </elementProp>
+            <elementProp name="Content-Length" elementType="Header">
+              <stringProp name="Header.name">Content-Length</stringProp>
+              <stringProp name="Header.value">3047</stringProp>
+            </elementProp>
+            <elementProp name="Accept" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/javascript, */*; q=0.01</stringProp>
+            </elementProp>
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="Origin" elementType="Header">
+              <stringProp name="Header.name">Origin</stringProp>
+              <stringProp name="Header.value">http://47.98.63.78:8088</stringProp>
+            </elementProp>
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/x-www-form-urlencoded;charset=UTF-8</stringProp>
+            </elementProp>
+            <elementProp name="Referer" elementType="Header">
+              <stringProp name="Header.name">Referer</stringProp>
+              <stringProp name="Header.value">http://47.98.63.78:8088/</stringProp>
+            </elementProp>
+            <elementProp name="Accept-Encoding" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate</stringProp>
+            </elementProp>
+            <elementProp name="Accept-Language" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+            </elementProp>
+            <elementProp name="Host" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">47.98.63.78:8087</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和&lt;1" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6}},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;created&quot;:1583117025410,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.1&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;created&quot;:1583117026660,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.2&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;created&quot;:1583117029624,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;created&quot;:1583116226239,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.11&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;created&quot;:1583117119622,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;created&quot;:1583117121223,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.4&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;created&quot;:1583117123122,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.2&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和&gt;1" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"> {&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6}},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;created&quot;:1583117025410,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.1&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;created&quot;:1583117026660,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.2&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;created&quot;:1583117029624,&quot;text&quot;:&quot;0.8&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;created&quot;:1583116226239,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.11&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;created&quot;:1583117119622,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;created&quot;:1583117121223,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.4&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;created&quot;:1583117123122,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.2&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="框架下每个父节点下权重和=1，计算总值正确" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6}},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;created&quot;:1583117025410,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.1&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false,&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0}},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;created&quot;:1583117026660,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.2&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;created&quot;:1583117029624,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.7&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;created&quot;:1583116226239,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[{&quot;data&quot;:{&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;created&quot;:1583117119622,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;created&quot;:1583117121223,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.4&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;created&quot;:1583117123122,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;weight&quot;:&quot;0.3&quot;,&quot;uselessWeight&quot;:false,&quot;reject&quot;:false},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="363661007">中心主题节点计算后得出的值为：17</stringProp>
+              <stringProp name="126388358">测试1节点计算后得出的值为：20.0;</stringProp>
+              <stringProp name="1361950209">测试2的值为：10.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="框架下每个父节点下权重和=1，1.1为一票否决" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;17.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;17.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6},&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0},&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117025410,&quot;reject&quot;:true,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;,&quot;background&quot;:&quot;#ff0000&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117026660,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117029624,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583116226239,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117119622,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117121223,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117123122,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1280369584">测试2的值为：10.0;\n\r中心主题节点计算后得出的值为：0.0;</stringProp>
+              <stringProp name="-965815714">测试1节点计算后得出的值为：0.0;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="框架下每个父节点下权重和=1，测试1节点为一票否决" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;17.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;17.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6},&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:true,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;20.0&quot;,&quot;background&quot;:&quot;#ff0000&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0},&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117025410,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117026660,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117029624,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583116226239,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117119622,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117121223,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117123122,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1280369584">测试2的值为：10.0;\n\r中心主题节点计算后得出的值为：0.0;</stringProp>
+              <stringProp name="126388358">测试1节点计算后得出的值为：20.0;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="框架下每个父节点下权重和=1，测试1和1.1都为一票否决" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6},&quot;color&quot;:&quot;#ffffff&quot;,&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:true,&quot;background&quot;:&quot;#ff0000&quot;,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0},&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117025410,&quot;reject&quot;:true,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;,&quot;background&quot;:&quot;#ff0000&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117026660,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117029624,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583116226239,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117119622,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117121223,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117123122,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1280369584">测试2的值为：10.0;\n\r中心主题节点计算后得出的值为：0.0;</stringProp>
+              <stringProp name="-965815714">测试1节点计算后得出的值为：0.0;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试节点1下分支权重和&lt;1，测试1为一票否决,优先判断和" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6},&quot;color&quot;:&quot;#ffffff&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:true,&quot;background&quot;:&quot;#ff0000&quot;,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0},&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117025410,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117026660,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117029624,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583116226239,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117119622,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117121223,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117123122,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1+测试2权重和&lt;1，1.1为一票否决," enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583113817187,&quot;id&quot;:&quot;c0zz0fi5ug00&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_mind_offset&quot;:{&quot;x&quot;:-36,&quot;y&quot;:-6},&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583113819670,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c0zz0gn899c0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;layout_right_offset&quot;:{&quot;x&quot;:2,&quot;y&quot;:0},&quot;color&quot;:&quot;#ffffff&quot;,&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117025410,&quot;reject&quot;:true,&quot;background&quot;:&quot;#ff0000&quot;,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c1005dcb8og0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117026660,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c1005dwzd880&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117029624,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c1005fa06k00&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583116226239,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c0zzv67hen40&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117119622,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006kmeja80&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117121223,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c1006lcvl0o0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583117123122,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c1006m8a32w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1005065357">&quot;msg&quot;:&quot;中心主题下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点不选择计算，1.1被否决，优先一票否决" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;color&quot;:&quot;#ffffff&quot;,&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:true,&quot;background&quot;:&quot;#ff0000&quot;,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1611411863">中心主题节点计算后得出的值为：0.0</stringProp>
+              <stringProp name="523033981">测试1节点计算后得出的值为：0.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点被一票否决，1.1不选择计算" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:true,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;,&quot;background&quot;:&quot;#ff0000&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1611411863">中心主题节点计算后得出的值为：0.0</stringProp>
+              <stringProp name="523042630">测试1节点计算后得出的值为：9.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.1被否决，1.2不参与计算" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:true,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;,&quot;background&quot;:&quot;#ff0000&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1611411863">中心主题节点计算后得出的值为：0.0</stringProp>
+              <stringProp name="523042630">测试1节点计算后得出的值为：9.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.1，1.2，2.1节点不参与计算，没有被否决节点" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;0.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585873425">中心主题节点计算后得出的值为：12.5</stringProp>
+              <stringProp name="523040708">测试1节点计算后得出的值为：7.0</stringProp>
+              <stringProp name="1361957897">测试2的值为：18.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.1，1.2，1.3节点不参与计算，没有被否决节点" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;12.5&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;12.5&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;7.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;7.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;18.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;18.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585871498">中心主题节点计算后得出的值为：10.0</stringProp>
+              <stringProp name="523033981">测试1节点计算后得出的值为：0.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点不参与计算，没有被否决节点" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;0.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;0.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585871498">中心主题节点计算后得出的值为：10.0</stringProp>
+              <stringProp name="-965784074">测试1节点计算后得出的值为：10.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1和1.1节点不参与计算，没有被否决节点" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585871498">中心主题节点计算后得出的值为：10.0</stringProp>
+              <stringProp name="523042630">测试1节点计算后得出的值为：9.0</stringProp>
+              <stringProp name="1361980000">测试2的值为：20.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和&lt;1，1.1不参与计算" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;9.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;9.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和&gt;1，1.2+1.3&lt;1;   1.1不参与计算" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;9.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;9.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}    </stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和&gt;1，1.2+1.3=1;   1.1不参与计算" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"> {&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;10.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;9.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;9.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:true,&quot;weight&quot;:&quot;0.3&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;} </stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-850818389">&quot;msg&quot;:&quot;测试1下节点权重值之和不为1&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试1节点下分支节点1.1，1.2，1.3权重和=1，1.2+1.3=1;   " enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;15.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;15.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585876303">中心主题节点计算后得出的值为：15.0</stringProp>
+              <stringProp name="-1125562624">测试1的值为：10.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.1的数值为负数（接口数值未做限制）" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;15.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;15.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;-10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585872459">中心主题节点计算后得出的值为：11.0</stringProp>
+              <stringProp name="1349165749">测试1的值为：2.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.1的权重值和数值为空（接口未做权重，数值为空判断，空代表0）" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">   {&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;15.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;15.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;-10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.4&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.6&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585872459">中心主题节点计算后得出的值为：11.0</stringProp>
+              <stringProp name="1349165749">测试1的值为：2.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.2的权重值是负数（接口正负数未做限制）" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="tree" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value"> {&quot;root&quot;:{&quot;data&quot;:{&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;resource&quot;:[&quot;15.0&quot;],&quot;created&quot;:1583125873846,&quot;id&quot;:&quot;c103aa99en40&quot;,&quot;text&quot;:&quot;中心主题&quot;,&quot;value&quot;:&quot;15.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583125900562,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103amj3kjk0&quot;,&quot;text&quot;:&quot;测试1&quot;,&quot;value&quot;:&quot;10.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126083710,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0&quot;,&quot;id&quot;:&quot;c103cyo12ig0&quot;,&quot;text&quot;:&quot;1.1&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;-10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126085442,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;-0.4&quot;,&quot;id&quot;:&quot;c103czgogi00&quot;,&quot;text&quot;:&quot;1.2&quot;,&quot;value&quot;:&quot;-10&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;10&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126088068,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;1.4&quot;,&quot;id&quot;:&quot;c103d0o3xkg0&quot;,&quot;text&quot;:&quot;1.3&quot;,&quot;value&quot;:&quot;10&quot;},&quot;children&quot;:[]}]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20.0&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126074653,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.5&quot;,&quot;id&quot;:&quot;c103cui8js80&quot;,&quot;text&quot;:&quot;测试2&quot;,&quot;value&quot;:&quot;20.0&quot;},&quot;children&quot;:[{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126096920,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.1&quot;,&quot;id&quot;:&quot;c103d4qhteo0&quot;,&quot;text&quot;:&quot;2.1&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126098262,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.2&quot;,&quot;id&quot;:&quot;c103d5comvk0&quot;,&quot;text&quot;:&quot;2.2&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]},{&quot;data&quot;:{&quot;resource&quot;:[&quot;20&quot;],&quot;obtainValueType&quot;:&quot;direct&quot;,&quot;created&quot;:1583126099730,&quot;reject&quot;:false,&quot;uselessWeight&quot;:false,&quot;weight&quot;:&quot;0.7&quot;,&quot;id&quot;:&quot;c103d60yq0w0&quot;,&quot;text&quot;:&quot;2.3&quot;,&quot;value&quot;:&quot;20&quot;},&quot;children&quot;:[]}]}]},&quot;template&quot;:&quot;default&quot;,&quot;theme&quot;:&quot;fresh-blue&quot;,&quot;version&quot;:&quot;1.4.33&quot;}    </stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tree</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">47.98.63.78</stringProp>
+          <stringProp name="HTTPSampler.port">8087</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/valuation/calculateNodes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1585880147">中心主题节点计算后得出的值为：19.0</stringProp>
+              <stringProp name="-1125554936">测试1的值为：18.0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
